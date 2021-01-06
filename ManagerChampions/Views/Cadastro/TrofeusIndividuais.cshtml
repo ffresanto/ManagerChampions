@@ -1,0 +1,69 @@
+﻿@model ManagerChampions.Models.Home.HomePremiosIndividuaisModel
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Lista de Títulos Individuais </h3>
+                </div>
+
+                <div class="card-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th style="display:none;"> Id </th>
+                                <th> Descrição </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                @*for (int i = 0; i < Model.ListaPremiosIndividuais.Count; i++)
+                                    {
+                                        <tr>
+                                            <td>@Model.ListaPremiosIndividuais[i].IdPremioIndividual</td>
+                                            <td>@Model.ListaPremiosIndividuais[i].Descricao</td>
+                                        </tr>
+                                    }*@
+
+                                foreach (var item in @Model.ListaPremiosIndividuais)
+                                {
+                            <tr>
+                                <td style="width:60px"><button type="button" class="btn btn-sm btn-fl btn-success" onclick="Editar(@item.IdPremioIndividual)">Editar</button></td>
+                                <td style="width:60px"><button type="button" class="btn btn-sm btn-danger" onclick="Excluir(@item.IdPremioIndividual)">Excluir</button></td>
+                                <td style="display:none;">@item.IdPremioIndividual</td>
+                                <td>@item.Descricao</td>
+                            </tr>
+                                }
+
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                    <br />
+                    <button type="button" class="btn btn-primary float-right" onclick="Cadastrar()"><i class="fas fa-plus"></i> Novo Registro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function Cadastrar()
+    {
+        window.location.href = "../Cadastro/TrofeusIndividuaisCadastro";
+    }
+
+    function Editar(id) {
+        window.location.href = "../Cadastro/TrofeusIndividuaisCadastro/" + id;
+    }
+
+    function Excluir(id) {
+        window.location.href = "../Cadastro/TrofeusIndividuaisExcluir/" + id;
+    }
+
+</script>

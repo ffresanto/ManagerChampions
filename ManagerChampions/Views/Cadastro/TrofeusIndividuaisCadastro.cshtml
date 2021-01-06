@@ -1,0 +1,47 @@
+﻿
+@model ManagerChampions.Models.PremiosIndividuais
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Cadastrar Título Individual </h3>
+                </div>
+
+                <div class="card-body">
+
+                    @{ if (Model.Descricao != "")
+                        {
+                            <form action="../../Cadastro/TrofeusIndividuaisEditar" method="post">
+                                <div class="form-group">
+
+                                    <label>Nome do Título</label>
+
+                                    <input type="hidden" name="IdPremioIndividual" class="form-control" value="@Model.IdPremioIndividual">
+                                    <input type="text" name="Descricao" class="form-control" value="@Model.Descricao">
+
+                                </div>
+                                <button type="submit" class="btn btn-block btn-success">Salvar</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form action="../Cadastro/TrofeusIndividuaisCadastro" method="post">
+                                <div class="form-group">
+
+                                    <label>Nome do Título</label>
+
+                                    <input type="text" name="Descricao" class="form-control" placeholder="Preencha o nome...">
+
+                                </div>
+                                <button type="submit" class="btn btn-block btn-success">Cadastrar</button>
+                            </form>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
